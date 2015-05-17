@@ -1,8 +1,4 @@
-package arquillianTest01;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -11,19 +7,17 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import javax.inject.Inject;
 
 @RunWith(Arquillian.class)
-public class GreeterPhraseBuilderTestWeblogic {
+public class GreeterTest {
 
     @Deployment
     public static JavaArchive createDeployment() {    
     	JavaArchive jar = 
     			ShrinkWrap.create(JavaArchive.class)
-    			.addClasses(GreeterPhraseBuilder.class, PhraseBuilder.class)
+    			.addClass(Greeter.class)
     			.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
     	;
     	System.out.println(jar.toString(true));
@@ -31,11 +25,22 @@ public class GreeterPhraseBuilderTestWeblogic {
     }
 	
     @Inject
-    GreeterPhraseBuilder greeter;
+    Greeter greeter;
+
+    @Test
+	public void testGreet() {
+		//fail("Not yet implemented");
+	}
 
 	@Test
+	public void testCreateGreeting() {
+		//fail("Not yet implemented");
+	}
+	
+	@Test
 	public void should_create_greeting() {
-	    Assert.assertEquals("Hello, Earthling!", greeter.createGreeting("Earthling"));
+	    Assert.assertEquals("Hello, Earthling!",
+	        greeter.createGreeting("Earthling"));
 	    greeter.greet(System.out, "Earthling");
 	}
 

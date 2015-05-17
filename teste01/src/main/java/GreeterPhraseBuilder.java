@@ -1,4 +1,4 @@
-package arquillianTest01;
+
 
 import java.io.PrintStream;
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package arquillianTest01;
+
 
 import java.text.MessageFormat;
 import java.util.HashMap;
