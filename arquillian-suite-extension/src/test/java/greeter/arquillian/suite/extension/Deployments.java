@@ -4,6 +4,7 @@ import greeter.Greeter;
 
 import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.TargetsContainer;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -11,13 +12,11 @@ import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 
-import util.resolveUtil;
-
 @ArquillianSuiteDeployment
-public class deployments {
+public class Deployments {
 
-    @Deployment
-    //@TargetsContainer("app")
+	@Deployment(name = "normal", order = 3)
+    @TargetsContainer("app")
     public static Archive<?> createTestArchive()  {
 		JavaArchive jar = ShrinkWrap
 			.create(JavaArchive.class)
@@ -28,6 +27,7 @@ public class deployments {
 	    WebArchive war = ShrinkWrap
 			//.create(WebArchive.class, "test.war")
 	    	.create(WebArchive.class)
+	    	.addClass(Deployments.class)
 			.addClass(Greeter.class)
 			.addClass(GreeterTest.class)
 		;
@@ -43,5 +43,9 @@ public class deployments {
 		//System.out.println(ret.toString(false));
     	return ret;
     }	
+    
+//    @Test
+//    public void soParaPoderIniciarAExec()	{
+//    }
 	
 }

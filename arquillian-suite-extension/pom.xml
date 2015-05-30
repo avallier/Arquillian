@@ -38,6 +38,15 @@
     </build>
 
     <dependencies>
+
+    	<!-- dependências internas -->
+    	<dependency>
+    		<groupId>br.com.avallier</groupId>
+    		<artifactId>arquillian</artifactId>
+    		<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+    	
+    	<!--  compilação -->
 	    <dependency>
 	        <groupId>org.jboss.spec</groupId>
 	        <artifactId>jboss-javaee-6.0</artifactId>
@@ -45,6 +54,13 @@
 	        <type>pom</type>
 	        <scope>provided</scope>
 	    </dependency>
+		<dependency>
+		    <groupId>org.eu.ingwar.tools</groupId>
+		    <artifactId>arquillian-suite-extension</artifactId>
+		    <version>1.0.6</version>
+		</dependency>
+	    
+	    <!-- test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -74,23 +90,11 @@
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.eu.ingwar.tools</groupId>
-		    <artifactId>arquillian-suite-extension</artifactId>
-		    <version>1.0.6</version>
-		</dependency>
-		<dependency>
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-simple</artifactId>
 		    <version>1.6.4</version>
 		    <scope>test</scope>
 		</dependency>
-    	
-    	<!-- dependências internas -->
-    	<dependency>
-    		<groupId>br.com.avallier</groupId>
-    		<artifactId>arquillian</artifactId>
-    		<version>0.0.1-SNAPSHOT</version>
-    	</dependency>
     	
     </dependencies>
   
