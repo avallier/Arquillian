@@ -10,6 +10,8 @@ import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 
+import util.resolveUtil;
+
 @ArquillianSuiteDeployment
 public class Deployments {
 
@@ -24,15 +26,17 @@ public class Deployments {
 		    	.addClass(Deployments.class)
 				.addClass(Teste.class)
 			;
+		    //resolveUtil.addDependencyPomAsFileInWebArchive(war, "org.slf4j:slf4j-log4j12");
 	    	
-	    	EnterpriseArchive ret = ShrinkWrap.create(EnterpriseArchive.class)
+	    	EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class)
 	    		.addAsModule(jar)
 	    		.addAsModule(war)
 	    	;  
+//	    	ear.addAsManifestResource("jboss-all.xml");
 	    	    	
-	    	System.out.println(ret.toString(true));
+	    	System.out.println(ear.toString(true));
 			//System.out.println(ret.toString(false));
-	    	return ret;
+	    	return ear;
 	    }  
 
 }

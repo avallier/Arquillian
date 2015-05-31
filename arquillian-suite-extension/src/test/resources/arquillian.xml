@@ -45,6 +45,6 @@ limitations under the License.
         </container>
     </group>
     
-        
-    <defaultProtocol type="Servlet 3.0"/>
+        <!--  the embedded Weld EE container does not support the Servlet 3.0 protocol -->
+		<!--     <defaultProtocol type="Servlet 3.0"/> -->
 </arquillian>
