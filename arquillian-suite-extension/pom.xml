@@ -17,6 +17,11 @@
 	            <scope>import</scope>
 	            <type>pom</type>
 	        </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+            </dependency>
 	    </dependencies>
 	</dependencyManagement>
 
@@ -38,13 +43,6 @@
     </build>
 
     <dependencies>
-
-    	<!-- dependências internas -->
-    	<dependency>
-    		<groupId>br.com.avallier</groupId>
-    		<artifactId>arquillian</artifactId>
-    		<version>0.0.1-SNAPSHOT</version>
-    	</dependency>
     	
     	<!--  compilação -->
 	    <dependency>
@@ -72,6 +70,11 @@
 		    <artifactId>arquillian-junit-container</artifactId>
 		    <scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-servlet</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-container-test-impl-base</artifactId>
